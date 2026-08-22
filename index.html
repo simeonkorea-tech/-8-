@@ -2,40 +2,83 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<title>백의천사단 《동행》 2026년 8월호</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>백의천사단 동행 2026년 8월호</title>
+
 <style>
-html,body{margin:0;padding:0;background:#fff}
-.newsletter{width:100%;max-width:1080px;margin:0 auto}
-.newsletter img{display:block;width:100%;height:auto;margin:0;padding:0}
-.music-button{position:fixed;right:16px;bottom:18px;z-index:999;border:0;border-radius:999px;padding:11px 15px;background:rgba(255,255,255,.92);box-shadow:0 2px 10px rgba(0,0,0,.18);font-size:14px}
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+}
+
+.newsletter {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.newsletter img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.music-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 12px 18px;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
 </style>
 </head>
+
 <body>
+
 <div class="newsletter">
-<img src="1.jpg" alt="1">
-<img src="2.jpg" alt="2" loading="lazy">
-<img src="3.jpg" alt="3" loading="lazy">
-<img src="4.jpg" alt="4" loading="lazy">
-<img src="5.jpg" alt="5" loading="lazy">
-<img src="6.jpg" alt="6" loading="lazy">
-<img src="7.jpg" alt="7" loading="lazy">
-<img src="8.jpg" alt="8" loading="lazy">
-<img src="9.jpg" alt="9" loading="lazy">
+    <img src="1.jpg" alt="1">
+    <img src="2.jpg" alt="2">
+    <img src="3.jpg" alt="3">
+    <img src="4.jpg" alt="4">
+    <img src="5.jpg" alt="5">
+    <img src="6.jpg" alt="6">
+    <img src="7.jpg" alt="7">
+    <img src="8.jpg" alt="8">
+    <img src="9.jpg" alt="9">
 </div>
-<audio id="bgm" loop preload="none"><source src="bgm.mp3" type="audio/mpeg"></audio>
-<button class="music-button" id="musicButton">♫ 음악 재생</button>
+
+<audio id="bgm" loop>
+    <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">♫ 음악 재생</button>
+
 <script>
-const audio=document.getElementById('bgm');
-const button=document.getElementById('musicButton');
-button.addEventListener('click',async()=>{
- if(audio.paused){
-  try{await audio.play();button.textContent='❚❚ 음악 정지';}
-  catch(e){button.textContent='♫ 음악 재생';}
- }else{
-  audio.pause();button.textContent='♫ 음악 재생';
- }
-});
+const audio = document.getElementById('bgm');
+const button = document.querySelector('.music-btn');
+
+function toggleMusic() {
+    if (audio.paused) {
+        audio.play();
+        button.innerHTML = 'Ⅱ 음악 정지';
+    } else {
+        audio.pause();
+        button.innerHTML = '♫ 음악 재생';
+    }
+}
 </script>
+
 </body>
 </html>
